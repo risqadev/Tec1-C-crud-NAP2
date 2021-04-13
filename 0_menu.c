@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "functions.h"
+#include "exports.h"
 
 int menu(void) {
   char select = 'n';
