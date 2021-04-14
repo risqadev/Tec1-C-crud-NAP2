@@ -9,37 +9,48 @@ int cadastro(void) {
   FILE *db;
   emp employee;
 
-  db = fopen(DB_FILE, "a+");
+  db = fopen(DB_FILENAME, "a+");
 
-  printf("Nº MATRÍCULA:  ");
-  scanf("%u", &employee.id);
+  employee.id = lastId+1;
 
   printf("NOME:  ");
   scanf(" %[^\n]", employee.name);
+  clearBuf();
 
   printf("EMAIL:  ");
   scanf("%s", employee.email);
-
-  printf("SALÁRIO:  ");
-  scanf("%f", &employee.salary);
+  clearBuf();
 
   printf("DATA DE ADMISSÃO (dd/mm/aaaa):  ");
   scanf("%s", employee.admission);
+  clearBuf();
+
+  printf("SALÁRIO:  ");
+  scanf("%f", &employee.salary);
+  clearBuf();
 
   printf("\nCADASTRO:\n"
-        "Matrícula: %d\n"
+        "Matrícula: %u\n"
         "Nome: %s\n"
         "E-mail: %s\n"
-        "Salário: R$ %.2f\n"
-        "Data de admissão: %s\n",
-        employee.id, employee.name, employee.email, employee.salary, employee.admission);
+        "Data de admissão: %s\n"
+        "Salário: R$ %.2f\n",
+        employee.id, employee.name, employee.email, employee.admission, employee.salary);
+
+  if (searchByName(employee.name)) {
+    printf("\nATENÇÃO! Este nome já existe!\n");
+  } else {
+    printf("\nGravar? (s/N):  ");
+    scanf("%[^\n]c", &save);
+    clearBuf();
+  }
   
-  printf("\nGravar? (s/N):  ");
-  scanf(" %c", &save);
 
   if (save == 's' || save == 'S') {
-    // printf("chamar função de gravação");
-    fprint(employee, db);
+    fprintf(db, "%u    %.2f    %s    %s    %s\n",
+            employee.id, employee.salary, employee.email, employee.admission, employee.name);
+    printf("Registro gravado com sucesso.\n");
+    rwCounts();
   }
 
   fclose(db);

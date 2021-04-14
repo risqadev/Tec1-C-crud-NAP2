@@ -5,7 +5,7 @@ int menu(void) {
   char select = 'n';
 
   do {
-    printf("\nInforme o programa a ser executado (1-8):\n"
+    printf("\nSelecione o módulo:\n"
             "1 - Cadastrar\n"
             "2 - Listar\n"
             "3 - Excluir\n"
@@ -17,12 +17,12 @@ int menu(void) {
       case '0' :
         break;
       case '1' :
-        printf("\n# 1 - Módulo de Cadastro\n");
+        printf("\n# 1 - Módulo Cadastro\n");
         cadastro();
         break;
       case '2' :
         printf("\n# 2 - Módulo Listar\n");
-        // questao2();
+        listar();
         break;
       case '3' :
         printf("\n# 3 - Módulo Excluir\n");
