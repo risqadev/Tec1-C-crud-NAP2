@@ -12,6 +12,7 @@ int menu(void) {
             "4 - Alterar\n"
             "0 - Sair\n> ");
     scanf(" %c", &select);
+    clearBuf();
 
     switch (select) {
       case '0' :
@@ -26,11 +27,11 @@ int menu(void) {
         break;
       case '3' :
         printf("\n# 3 - Módulo Excluir\n");
-        // registrar();
+        excluir();
         break;
       case '4' :
         printf("\n# 4 - Módulo Alterar\n");
-        // idades();
+        alterar();
         break;
     }
   } while (select != '0');

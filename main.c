@@ -3,18 +3,20 @@
 
 int main(void) {
 
-  printf("################\n"
-        "Universidade Federal Rural da Amazônia\n"
+  printf("\n#####################################\n"
+        "\nUniversidade Federal Rural da Amazônia\n"
+        "Curso: Sistemas de Informação\n"
         "Disciplina: Técnicas de Programação I\n"
+        "Professor: Edvar Oliveira\n"
         "Projeto avaliativo referente ao 2º NAP\n"
-        "Aluno: Ricardo Santana Camacho\n"
         "Desenvolvido em abril/2021\n"
-        "################\n"
+        "\nAluno: Ricardo Santana Camacho  Mat.: 2020004628\n"
+        "\n#####################################\n"
         "\nBem vindo ao sistema de recursos humanos!\n");
 
-  dbRead();
+  dbCheck(); // verifica ou cria os arquivos para persistência
   
-  menu(); // chama o menu principal
+  menu(); // chama o menu
   
   return 0;
 }

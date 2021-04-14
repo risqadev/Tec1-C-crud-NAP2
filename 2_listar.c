@@ -16,6 +16,7 @@ int listar(void) {
           "Salário: %.2f\n"
           , curr.id, curr.name, curr.email, curr.admission, curr.salary);
 	}
+  // clearBuf();
 
   fclose(db);
 

@@ -6,27 +6,24 @@
 
 int cadastro(void) {
   char save = 'n';
-  FILE *db;
-  emp employee;
+  emp current;
 
-  db = fopen(DB_FILENAME, "a+");
+  current.id = lastId+1;
 
-  employee.id = lastId+1;
-
-  printf("NOME:  ");
-  scanf(" %[^\n]", employee.name);
+  printf("Nome:  ");
+  scanf(" %[^\n]", current.name);
   clearBuf();
 
-  printf("EMAIL:  ");
-  scanf("%s", employee.email);
+  printf("E-mail:  ");
+  scanf("%s", current.email);
   clearBuf();
 
-  printf("DATA DE ADMISSÃO (dd/mm/aaaa):  ");
-  scanf("%s", employee.admission);
+  printf("Data de admissão (dd/mm/aaaa):  ");
+  scanf("%s", current.admission);
   clearBuf();
 
-  printf("SALÁRIO:  ");
-  scanf("%f", &employee.salary);
+  printf("Salário:  ");
+  scanf("%f", &current.salary);
   clearBuf();
 
   printf("\nCADASTRO:\n"
@@ -35,25 +32,37 @@ int cadastro(void) {
         "E-mail: %s\n"
         "Data de admissão: %s\n"
         "Salário: R$ %.2f\n",
-        employee.id, employee.name, employee.email, employee.admission, employee.salary);
+        current.id, current.name, current.email, current.admission, current.salary);
 
-  if (searchByName(employee.name)) {
-    printf("\nATENÇÃO! Este nome já existe!\n");
+  if (searchByName(current.name)) {
+    printf("\nATENÇÃO! Este funcionário já está cadastrado!\n");
   } else {
     printf("\nGravar? (s/N):  ");
     scanf("%[^\n]c", &save);
     clearBuf();
   }
-  
 
   if (save == 's' || save == 'S') {
-    fprintf(db, "%u    %.2f    %s    %s    %s\n",
-            employee.id, employee.salary, employee.email, employee.admission, employee.name);
-    printf("Registro gravado com sucesso.\n");
-    rwCounts();
-  }
+    FILE *db;
 
-  fclose(db);
+    db = fopen(DB_FILENAME, "a+");
+    
+    if(db == NULL) {
+      printf("Problema na abertura do arquivo.\n");
+      return -1;
+    }
+
+    fprintf(db, "%u    %.2f    %s    %s    %s\n",
+            current.id, current.salary, current.email, current.admission, current.name);
+
+    printf("Registro gravado com sucesso.\n");
+
+    ++nRg;
+    ++lastId;
+    rwCounts();
+
+    fclose(db);
+  }
 
   return 0;
 }
