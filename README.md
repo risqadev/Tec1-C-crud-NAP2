@@ -2,9 +2,9 @@
 Trabalho desenvolvido no âmbito da disciplina **Técnicas de Programação I**, do curso de **Sistemas de Informação**, da **Universidade Federal Rural da Amazônia (UFRA)**.
 
 ### Alunos
-**Douglas Costa Cabral**, mat. nº 2019039433
-**Geison da Silva Santos**, mat. nº 2020042137
-**Ricardo Santana Camacho**, mat. nº 2020004628
+* **Douglas Costa Cabral**, mat. nº 2019039433
+* **Geison da Silva Santos**, mat. nº 2020042137
+* **Ricardo Santana Camacho**, mat. nº 2020004628
 
 ### Informações do projeto
 * Código e deploy também disponível em: [https://replit.com/@rscamacho/Tec1-SisRH-NAP2#main.c](https://replit.com/@rscamacho/Tec1-SisRH-NAP2).
