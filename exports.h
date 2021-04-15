@@ -9,7 +9,7 @@
 #define COUNTS_FILENAME "COUNTS.txt"
 #define TEMP_FILENAME "TEMP.txt"
 
-// ESTRUTURAS
+// ESTRUTURA
 typedef struct {
   unsigned int id;
   float salary;

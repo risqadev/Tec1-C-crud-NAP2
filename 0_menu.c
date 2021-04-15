@@ -19,19 +19,19 @@ int menu(void) {
         break;
       case '1' :
         printf("\n# 1 - Módulo Cadastro\n");
-        cadastro();
+        cadastro(); // chama o módulo cadastro
         break;
       case '2' :
         printf("\n# 2 - Módulo Listar\n");
-        listar();
+        listar(); // chama o módulo listar
         break;
       case '3' :
         printf("\n# 3 - Módulo Excluir\n");
-        excluir();
+        excluir(); // chama o módulo excluir
         break;
       case '4' :
         printf("\n# 4 - Módulo Alterar\n");
-        alterar();
+        alterar(); // chama o módulo alterar
         break;
     }
   } while (select != '0');

@@ -4,13 +4,13 @@
 
 FILE *db, *counts, *temp;
 
-
+// limpa o buffer de entrada
 void clearBuf(void) {
   char c;
   while((c = getchar()) != '\n' && c != EOF);
 }
 
-
+// reescreve o arquivo de banco de dados com base no arquivo temporário
 int rwDb() {
   db = fopen(DB_FILENAME, "w");
   temp = fopen(TEMP_FILENAME, "r");
@@ -25,7 +25,7 @@ int rwDb() {
   return 0;
 }
 
-
+// cria os arquivos iniciais (counts e database) se eles não existirem
 int filesCreate(void) {
   printf("filecheck: Criando arquivos.\n");
 
@@ -42,7 +42,7 @@ int filesCreate(void) {
   return 0;
 }
 
-
+// checa se os arquivos iniciais (counts e database) existem
 int dbCheck(void) {
   db = fopen(DB_FILENAME, "r");
   counts = fopen(COUNTS_FILENAME, "r");
@@ -59,7 +59,7 @@ int dbCheck(void) {
   return 0;
 }
 
-
+// reescreve o arquivo de contagens quando necessário
 int rwCounts (void) {
   counts = fopen(COUNTS_FILENAME, "w");
 
@@ -75,7 +75,7 @@ int rwCounts (void) {
   return 0;
 }
 
-
+// verifica se um registro já existe pelo nome
 _Bool searchByName (const char *s) {
   db = fopen(DB_FILENAME, "r");
   emp curr;
